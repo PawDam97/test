@@ -12,4 +12,10 @@ class Factures extends Model
     public function customer(){
         return $this->belongsTo('App\Models\Customer');
     }
+
+    protected $fillable=[
+        'number',
+        'date',
+        'total'
+    ];
 }
