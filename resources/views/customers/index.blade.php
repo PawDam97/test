@@ -15,31 +15,7 @@ function myFunction() {
 //https://www.codeply.com/go/ZrKScrDvuE/bootstrap-load-google-map-inside-modal
 //https://www.codeply.com/go/fJjRC7nujr/bootstrap-4-google-map-in-modal
 //https://mdbootstrap.com/docs/b4/jquery/javascript/google-maps/
-var element = $(this);
-var map;
-function initialize(myCenter) {
-  var marker = new google.maps.Marker({
-    position: myCenter
-  });
 
-  var mapProp = {
-    center: myCenter,
-    zoom: 8,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-
-  map = new google.maps.Map(document.getElementById("map-canvas"), mapProp);
-  marker.setMap(map);
-};
-
-$('#myMapModal').on('show.bs.modal', function(e) {
-  var element = $(e.relatedTarget);
-  var data = element.data("lat").split(',');
-  var latlng = new google.maps.LatLng(data[0], data[1]);
-  initialize(latlng);
-  $("#lat").html(latlng.lat() + ", " +latlng.lng());
-  google.maps.event.trigger(map, 'resize');
-});
 </script>
 
         <!-- Portfolio Section-->
@@ -97,7 +73,16 @@ $('#myMapModal').on('show.bs.modal', function(e) {
             </div>
             <div class="modal-body">
                 <div id="map-canvas" class="">
-                
+                <iframe src=
+                "https://maps.google.com/maps?q=34,23&output=embed""                    
+                    width="400"
+                    height="300"
+                    frameborder="0"
+                    style="border:0;"
+                    allowfullscreen=""
+                    aria-hidden="false"
+                    tabindex="0">
+            </iframe>
                 </div>
             </div>
             <div class="modal-footer">
