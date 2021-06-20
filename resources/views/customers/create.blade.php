@@ -18,7 +18,7 @@
                         <form action="{{ route('customers.store') }}" method="POST" id="contactForm" name="sentMessage">
                         {{csrf_field()}}
                             <div class="form-floating">
-                                <input class="form-control" id="name" name="name" type="text" placeholder="Wpisz nazwę..." required/>
+                                <input class="form-control" id="name" name="name" type="text" placeholder="Wpisz nazwę..." pattern="[A-Za-z]{3,}" title="Three letter country code" required/>
                                 <label for="inputName">Nazwa klienta</label>
                             </div>
                             <div class="form-floating">
