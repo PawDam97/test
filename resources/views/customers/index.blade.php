@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+$zmienna="asd";
 <style>
 #map-canvas {
   width: 100%;
@@ -16,6 +17,8 @@ function myFunction() {
 //https://www.codeply.com/go/fJjRC7nujr/bootstrap-4-google-map-in-modal
 //https://mdbootstrap.com/docs/b4/jquery/javascript/google-maps/
 //https://adnan-tech.com/google-maps-in-php-without-api-key-by-coordinates-by-address/
+<?php if (empty($zmienna) == '0'){ ?> style="pointer-events: none"<?php   } ?> //button
+<?php if (empty($zmienna) == '0'){ ?> STYLE="display:none"<?php   } ?> //tabela
 </script>
 
         <!-- Portfolio Section-->
@@ -37,9 +40,9 @@ function myFunction() {
                     <div class="divider-custom-line"></div>
                 </div>
 
-                <button type="button" class="btn btn-primary" onclick="myFunction()">Pokaż tabele</button>
-                <a href="#" data-lat="-15,25" data-toggle="modal" data-target="#myMapModal" class="btn btn-primary">Map 1</a>
-                <table class="table table-striped table-dark" id="table" STYLE="display:none">
+                <button type="button" class="btn btn-primary" onclick="myFunction()" <?  ?>disabled>Pokaż tabele</button>
+                <a href="#" data-lat="-15,25" data-toggle="modal" data-target="#myMapModal" class="btn btn-primary" style="pointer-events: none">Map 1</a>
+                <table class="table table-striped table-dark" id="table" if(empty($zmienna)) STYLE="display:none">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -56,8 +59,8 @@ function myFunction() {
       <td>{{$customer->name}}</td>
       <td>{{$customer->address}}</td>
       <td>{{$customer->nip}}</td>
-      <td><a href="{{route('customers.edit',['klienci'=>$customer->id])}}" class="btn btn-light">Edytuj</td>
-      <td><a href="{{route('customers.destroy',['klienci'=>$customer->id])}}" class="btn btn-danger">Usuń</td>
+      <td><a href="{{route('customers.edit',['klienci'=>$customer->id])}}" class="btn btn-light" >Edytuj</td>
+      <td><a href="{{route('customers.destroy',['klienci'=>$customer->id])}}" class="btn btn-danger" >Usuń</td>
     </tr>
     @endforeach
   </tbody>
